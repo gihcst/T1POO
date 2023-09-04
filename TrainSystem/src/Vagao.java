@@ -1,9 +1,9 @@
-public class Vagoes {
+public class Vagao {
     private int id;
     private double capacity;
     private boolean comp;
 
-    public Vagoes(int id, double capacity, boolean comp) {
+    public Vagao(int id, double capacity, boolean comp) {
         this.id = id;
         this.capacity = capacity;
         this.comp = comp;
