@@ -1,9 +1,12 @@
 import java.util.*;
 public class Trem {
     private int id;
+    private int QuantLocomotiva;
+    private int QuantVagoes;
     private ArrayList<Locomotiva> locomotivas;
     private ArrayList<Vagao> vagoes;
     private boolean vagaoEngatado;  
+    private int posicao;
 
     //criar trem (construtor)
     public Trem(int id, Locomotiva locomotiva){
@@ -15,6 +18,22 @@ public class Trem {
 
     public int getId() {
         return id;
+    }
+
+    public int getQuantLocomotiva() {
+        return locomotivas.size();
+    }
+
+    public int getQuantVagoes() {
+        return vagoes.size();
+    }
+
+    public Locomotiva getLocomotiva(int posicao) {
+        return locomotivas.get(posicao);
+    }
+
+    public Vagao getVagao(int posicao) {
+        return vagoes.get(posicao);
     }
 
     public boolean engataVagao(Vagao vagao) {
