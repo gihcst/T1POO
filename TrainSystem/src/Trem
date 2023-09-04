@@ -1,0 +1,18 @@
+import java.util.*;
+public class Trem {
+    private int id;
+    private ArrayList<Locomotiva> locomotivas;
+    private ArrayList<Vagao> vagoes;
+
+    //criar trem (construtor)
+    public Trem(int id, Locomotiva locomotiva){
+        this.id = id;
+        locomotivas = new ArrayList<>();
+        vagoes = new ArrayList<>()
+        //precisa da locomotiva tb
+    }
+
+    public int getId() {
+        return id;
+    }
+}
