@@ -26,9 +26,9 @@ public class App {
             if(escolhaMenu == 1){
                 System.out.println("Qual o identificador do trem?");
                 tremId = scanner.nextInt();
-                    /*/ if(patio.checkExist(tremId) == true){
+                    if(patio.verificaIdTrem(tremId) == true){
                         System.out.println("Já existe um trem com esse identificador. Digite outro.");
-                    } else {
+                    } /*/else {
                         patio.criarTrem(tremId);
                         System.out.println("Qual o identificador da primeira locomotiva?");
                         locoId = scanner.nextInt();
@@ -39,7 +39,7 @@ public class App {
                             patio.addTrem(tremId);
                             System.out.println("Trem criado com sucesso.");
                         }
-                    } /*/
+                    }/*/
                     }
         }while(escolhaMenu != 5);
     }

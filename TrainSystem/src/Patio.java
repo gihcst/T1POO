@@ -9,4 +9,20 @@ public class Patio {
         gl = new GaragemLocomotivas();
         gv = new GaragemVagoes();
     }
+
+    //verifica se o id do trem informado existe
+    public boolean verificaIdTrem(int id){
+        for(Trem t: trens){
+            if (t.getId() == id){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /*/public Trem criaTrem(int tremId){
+        Trem t = new Trem(tremId);
+        trens.add(t);
+        return t;
+    }/*/ 
 }

@@ -12,7 +12,7 @@ public class Trem {
         this.id = id;
         this.locomotivas = new ArrayList<Locomotiva>();
         this.vagoes = new ArrayList<Vagao>();
-        this.locomotivas.add(locomotiva);
+        engataLocomotiva(locomotiva);
     }
 
     public int getId() {
