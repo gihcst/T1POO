@@ -6,7 +6,8 @@ public class App {
         GaragemLocomotivas garagemL = new GaragemLocomotivas();
         GaragemVagoes garagemV = new GaragemVagoes();
         int escolhaMenu = -1;
-        int tremId, locoId;
+        int escolhaSubMenu = -1;
+        int tremId, locoId, vagaoId;
         
         System.out.println("Bem vindo ao aplicativo.");
 
@@ -21,7 +22,7 @@ public class App {
             System.out.println("\n");
             System.out.print("Digite o número da opção desejada: ");
             escolhaMenu = scanner.nextInt();
-            if(escolhaMenu < 1 || escolhaMenu > 5){
+            while(escolhaMenu < 1 || escolhaMenu > 5){
                 System.out.println("Opção inválida. Digite novamente: ");
             }
             if(escolhaMenu == 1){
@@ -40,6 +41,67 @@ public class App {
                         Locomotiva locoadd = GaragemLocomotivas.getLocomotiva(locoId);
                         patio.criaTrem(tremId,locoadd);
                         System.out.println("Trem criado com sucesso! =)");
+            }
+            if(escolhaMenu == 2){
+            System.out.println("\n");
+            System.out.println("               Menu               ");
+            System.out.println("   1. Inserir uma locomotiva      ");
+            System.out.println("   2. Inserir um vagão     ");
+            System.out.println("   3. Remover o último elemento   ");
+            System.out.println("   4. Listar locomotivas livres   ");
+            System.out.println("   5. Listar vagões livres   ");
+            System.out.println("   6. Voltar");
+            System.out.println("\n");
+            System.out.print("Digite o número da opção desejada: ");
+            escolhaMenu = scanner.nextInt();
+            while(escolhaMenu < 1 || escolhaMenu > 6){
+                System.out.println("Opção inválida. Digite novamente: ");
+            }
+            if(escolhaMenu == 1){
+                System.out.println("Qual o identificador do trem em que deseja adicionar? ");
+                tremId = scanner.nextInt();
+                while(Patio.verificaIdTrem(tremId) == false){
+                    System.out.println("Não existe um trem com esse identificador. Digite novamente: ");
+                    tremId = scanner.nextInt();
+                }
+                    System.out.println("Qual o identificador da locomotiva? ");
+                    locoId = scanner.nextInt();
+                    while(GaragemLocomotivas.verificaIdLocomotiva(locoId) == false){
+                        System.out.println("Essa locomotiva não está disponível. Digite novamente: ");
+                        locoId = scanner.nextInt();
+                    } 
+                        Locomotiva locoadd = GaragemLocomotivas.getLocomotiva(locoId);
+                        Trem.engataLocomotiva(tremId,locoadd);   //arrumar aqui metodo//
+                        System.out.println("Locomotiva adicionada com sucesso! =)");
+            }
+            if(escolhaMenu == 2){
+                System.out.println("Qual o identificador do trem em que deseja adicionar? ");
+                tremId = scanner.nextInt();
+                while(Patio.verificaIdTrem(tremId) == false){
+                    System.out.println("Não existe um trem com esse identificador. Digite novamente: ");
+                    tremId = scanner.nextInt();
+                }
+                    System.out.println("Qual o identificador do vagão? ");
+                    vagaoId = scanner.nextInt();
+                    while(GaragemVagoes.verificaIdVagao(vagaoId) == false){ //arrumar aqui static//
+                        System.out.println("Esse vagão não está disponível. Digite novamente: ");
+                        vagaoId = scanner.nextInt();
+                    } 
+                        Vagao vagaoAdd = GaragemVagoes.getVagao(vagaoId); //arrumar aqui static//
+                        Trem.engataVagao(tremId,vagaoAdd);   //arrumar aqui metodo//
+                        System.out.println("Vagão adicionado com sucesso! =)");
+            }
+            }
+            if(escolhaMenu == 3){
+                System.out.println("Qual o identificador do trem em que deseja adicionar? ");
+                tremId = scanner.nextInt();
+                while(Patio.verificaIdTrem(tremId) == false){
+                    System.out.println("Não existe um trem com esse identificador. Digite novamente: ");
+                    tremId = scanner.nextInt();
+                }
+                Patio.removeUltimoElemento(tremId); //arrumar aqui metodo//
+                System.out.println("Elemento removido com sucesso! =)");
+            }
             }
             if(escolhaMenu == 3){
                 System.out.println(patio.toString());
