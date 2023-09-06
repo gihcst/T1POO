@@ -110,6 +110,18 @@ public class Trem {
         GaragemVagoes.addVagao(vagao);
         return true;
     }
+
+    public void desengataTudo(){
+        int sizeV = this.vagoes.size();
+        for(int i = 0; i < sizeV; i++){
+            desengataVagao(getVagao(vagoes.size()-1)); 
+        }
+        int sizeL = this.locomotivas.size();
+        for(int i = 0; i < sizeL; i++){
+            desengataLocomotiva(getLocomotiva(locomotivas.size()-1)); 
+        }
+    }
+
     public String toString() {
         String retorno = "Trem: "+ id + " ";
         for(Locomotiva l : locomotivas){

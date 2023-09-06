@@ -18,10 +18,22 @@ public class Patio {
         return t;
     } 
 
-    public String toString() {
-        String retorno = "Trens estacionados:\n";
+    public void desfazTrem(int id){
+        int count = 0;
         for(Trem t : trens){
-            retorno += t.toString() + "\n";
+            if (t.getId() == id){
+                t.desengataTudo();
+                trens.remove(count);
+                break;
+            }
+            count++;
+        }
+    }
+
+    public String toString() {
+        String retorno = "     Trens estacionados:\n";
+        for(Trem t : trens){
+            retorno += "› " + t.toString() + "\n";
         }
         return retorno;
     }
