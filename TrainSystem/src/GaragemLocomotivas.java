@@ -17,7 +17,7 @@ public class GaragemLocomotivas {
     }
 
     //verifica se o id da locomotiva informada existe
-    public boolean verificaIdLocomotiva(int id){
+    public static boolean verificaIdLocomotiva(int id){
         for(Locomotiva l: garagemLocomotiva){
             if (l.getId() == id){
                 return true;
@@ -26,7 +26,7 @@ public class GaragemLocomotivas {
         return false;
     }
 
-    public Locomotiva getLocomotiva(int idLocomotiva) {
+    public static Locomotiva getLocomotiva(int idLocomotiva) {
         int index = 0;
         int posicao = 0;
         for(Locomotiva X : garagemLocomotiva){

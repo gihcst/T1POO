@@ -1,5 +1,4 @@
 import java.util.*;
-
 public class App {
     public static void main(String[] args) throws Exception {
         Patio patio = new Patio();
@@ -20,27 +19,28 @@ public class App {
             System.out.println("\n");
             System.out.print("Digite o número da opção desejada: ");
             escolhaMenu = scanner.nextInt();
-                if(escolhaMenu < 1 || escolhaMenu > 5){
-                System.out.println("Opção inválida. Digite novamente.");
-                }
+            if(escolhaMenu < 1 || escolhaMenu > 5){
+                System.out.println("Opção inválida. Digite novamente: ");
+            }
             if(escolhaMenu == 1){
                 System.out.println("Qual o identificador do trem?");
                 tremId = scanner.nextInt();
-                    if(patio.verificaIdTrem(tremId) == true){
-                        System.out.println("Já existe um trem com esse identificador. Digite outro.");
-                    } /*/else {
-                        patio.criarTrem(tremId);
-                        System.out.println("Qual o identificador da primeira locomotiva?");
+                while(Patio.verificaIdTrem(tremId) == true){
+                    System.out.println("Já existe um trem com esse identificador. Digite novamente: ");
+                    tremId = scanner.nextInt();
+                }
+                    System.out.println("Qual o identificador da primeira locomotiva?");
+                    locoId = scanner.nextInt();
+                    while(GaragemLocomotivas.verificaIdLocomotiva(locoId) == false){
+                        System.out.println("Não existe uma locomotiva com esse identificador. Digite novamente:");
                         locoId = scanner.nextInt();
-                            if(GaragemLocomotivas.checkExist(locoId) != true){
-                            System.out.println("Não existe uma locomotiva com esse identificador. Digite outro.");
-                        else {
-                            Trem.addLocomotiva(locoId);
-                            patio.addTrem(tremId);
-                            System.out.println("Trem criado com sucesso.");
-                        }
-                    }/*/
-                    }
+                    } 
+                        Locomotiva locoadd = GaragemLocomotivas.getLocomotiva(locoId);
+                        patio.criaTrem(tremId,locoadd);
+                        System.out.println("Trem criado com sucesso.");
+                    
+            
+            }
         }while(escolhaMenu != 5);
     }
 }
