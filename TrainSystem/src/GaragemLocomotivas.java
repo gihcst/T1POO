@@ -11,4 +11,8 @@ public class GaragemLocomotivas {
             index++;
         }
     }
+    
+    public static void addLocomotiva(Locomotiva locomotiva) {
+        garagemLocomotiva.add(locomotiva);
+    }
 }

@@ -1,23 +1,26 @@
 public class Vagao {
     private int id;
-    private double capacity;
-    private boolean comp;
+    private double capacidade;
+    private int composicao = 0;
 
-    public Vagao(int id, double capacity, boolean comp) {
+    public Vagao(int id, double capacidade) {
         this.id = id;
-        this.capacity = capacity;
-        this.comp = comp;
+        this.capacidade = capacidade;
     }
 
     public int getId() {
         return id;
     }
 
-    public double getCapacity() {
-        return capacity;
+    public double getCapacidade() {
+        return capacidade;
     }
 
-    public boolean isComp() {
-        return comp;
+    public int getComposicao() {
+        return composicao;
+    }
+
+    public void setComposicao(int composicao) {
+        this.composicao = composicao;
     }
 }

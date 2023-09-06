@@ -54,12 +54,17 @@ public class Trem {
     public boolean engataVagao(Vagao vagao) {
         vagoes.add(vagao);
         vagaoEngatado = true;
+        vagao.setComposicao(this.id);
+        this.capacidadeTotalPeso -= vagao.getCapacidade();
+        this.capacidadeTotalVagões -= vagao.getCapacidade();
+        GaragemVagoes.removeVagao(vagao);
         return true;
     }
 
     public boolean engataLocomotiva(Locomotiva locomotiva) {
         if (vagaoEngatado == false) {
             locomotivas.add(locomotiva);
+            locomotiva.setComposicao(this.id);
             this.capacidadeTotalPeso += locomotiva.getMaxPeso();
             this.capacidadeTotalVagões += locomotiva.getMaxVagoes();
             if(locomotivas.size()>1){
@@ -76,11 +81,28 @@ public class Trem {
 
     public boolean desengataLocomotiva(Locomotiva locomotiva) {
         locomotivas.remove(locomotiva);
+        locomotiva.setComposicao(0);
+        if(locomotivas.size()>1){
+            this.capacidadeTotalPeso -= locomotiva.getMaxPeso() * 0.9;
+            this.capacidadeTotalVagões -= locomotiva.getMaxVagoes() * 0.9;
+        }
+        else{
+            this.capacidadeTotalPeso -= locomotiva.getMaxPeso();
+            this.capacidadeTotalVagões -= locomotiva.getMaxVagoes();
+        }
+        GaragemLocomotivas.addLocomotiva(locomotiva);
         return true;
     }
 
     public boolean desengataVagao(Vagao vagao) {
         vagoes.remove(vagao);
+        if(vagoes.size() == 1){
+            vagaoEngatado = false;
+        }
+        vagao.setComposicao(0);
+        this.capacidadeTotalPeso += vagao.getCapacidade();
+        this.capacidadeTotalVagões += vagao.getCapacidade();
+        GaragemVagoes.addVagao(vagao);
         return true;
     }
 }
