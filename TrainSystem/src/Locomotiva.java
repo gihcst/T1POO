@@ -30,4 +30,8 @@ public class Locomotiva {
     public void setComposicao(int composicao) {
         this.composicao = composicao;
     }
+
+    public String toString() {
+        return "Locomotiva [ID = " + id + ", Capacidade = " + maxPeso + ", Máximo de Vagões = " + maxVagoes + "]";
+    }
 }

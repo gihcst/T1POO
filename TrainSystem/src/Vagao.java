@@ -23,4 +23,8 @@ public class Vagao {
     public void setComposicao(int composicao) {
         this.composicao = composicao;
     }
+
+    public String toString() {
+        return "Vagão [ID = " + id + "Capacidade = " + capacidade + "]";
+    }
 }
