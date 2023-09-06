@@ -1,12 +1,11 @@
 import java.util.*;
 public class Trem {
     private int id;
-    private int QuantLocomotiva;
-    private int QuantVagoes;
     private ArrayList<Locomotiva> locomotivas;
     private ArrayList<Vagao> vagoes;
     private boolean vagaoEngatado;  
-    private int posicao;
+    private double capacidadeTotalPeso = 0;
+    private double capacidadeTotalVagões = 0;
 
     //criar trem (construtor)
     public Trem(int id, Locomotiva locomotiva){
@@ -28,12 +27,28 @@ public class Trem {
         return vagoes.size();
     }
 
-    public Locomotiva getLocomotiva(int posicao) {
+    public Locomotiva getLocomotiva(int idLocomotiva) {
+        int index = 0;
+        int posicao = 0;
+        for(Locomotiva X : locomotivas){
+            if(X.getId() == idLocomotiva){
+             posicao = index;   
+            }
+            index++;
+        }
         return locomotivas.get(posicao);
     }
 
-    public Vagao getVagao(int posicao) {
-        return vagoes.get(posicao);
+    public Vagao getVagao(int idVagao) {
+        int index = 0;
+        int posicaoB = 0;
+        for(Vagao X : vagoes){
+            if(X.getId() == idVagao){
+             posicaoB = index;   
+            }
+            index++;
+        }
+        return vagoes.get(posicaoB);
     }
 
     public boolean engataVagao(Vagao vagao) {
@@ -45,6 +60,13 @@ public class Trem {
     public boolean engataLocomotiva(Locomotiva locomotiva) {
         if (vagaoEngatado == false) {
             locomotivas.add(locomotiva);
+            this.capacidadeTotalPeso += locomotiva.getMaxPeso();
+            this.capacidadeTotalVagões += locomotiva.getMaxVagoes();
+            if(locomotivas.size()>1){
+                this.capacidadeTotalPeso = capacidadeTotalPeso * 0.9;
+                this.capacidadeTotalVagões = capacidadeTotalVagões * 0.9;
+            }
+            GaragemLocomotivas.removeLocomotiva(locomotiva);
             return true;
         }
         else {

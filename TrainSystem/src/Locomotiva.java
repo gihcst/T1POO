@@ -1,12 +1,12 @@
 public class Locomotiva {
     private int id;
-    private double peso;
+    private double maxPeso;
     private int maxVagoes;
     private boolean comp;
     
-    public Locomotiva(int id, double peso, int maxVagoes, boolean comp) {
+    public Locomotiva(int id, double maxPeso, int maxVagoes, boolean comp) {
         this.id = id;
-        this.peso = peso;
+        this.maxPeso = maxPeso;
         this.maxVagoes = maxVagoes;
         this.comp = comp;
     }
@@ -15,8 +15,8 @@ public class Locomotiva {
         return id;
     }
     
-    public double getPeso() {
-        return peso;
+    public double getMaxPeso() {
+        return maxPeso;
     }
     
     public int getMaxVagoes() {
