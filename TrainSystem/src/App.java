@@ -2,8 +2,10 @@ import java.util.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
+        Patio patio = new Patio();
         Scanner scanner = new Scanner(System.in);
         int escolhaMenu = -1;
+        int tremId;
         
         System.out.println("Bem vindo ao aplicativo.");
 
@@ -22,8 +24,14 @@ public class App {
                 System.out.println("Opção inválida. Digite novamente.");
                 }
             if(escolhaMenu == 1){
-                System.out.println("Opção 1 foi selecionada.");
-            }
+                System.out.println("Qual o identificador do trem?");
+                tremId = scanner.nextInt();
+                    /*/ if(patio.checkId(tremId) == true){
+                        System.out.println("Já existe um trem com esse identificador. Digite outro.");
+                    } else {
+                        patio.criarTrem(tremId);
+                        System.out.println("Trem criado com sucesso.");                    } /*/
+                    }
         }while(escolhaMenu != 5);
     }
 }
