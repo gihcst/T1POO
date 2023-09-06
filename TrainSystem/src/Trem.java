@@ -5,7 +5,7 @@ public class Trem {
     private ArrayList<Vagao> vagoes;
     private boolean vagaoEngatado;  
     private double capacidadeTotalPeso = 0;
-    private double capacidadeTotalVagões = 0;
+    private double capacidadeTotalVagoes = 0;
 
     //criar trem (construtor)
     public Trem(int id, Locomotiva locomotiva){
@@ -52,13 +52,18 @@ public class Trem {
     }
 
     public boolean engataVagao(Vagao vagao) {
-        vagoes.add(vagao);
-        vagaoEngatado = true;
-        vagao.setComposicao(this.id);
-        this.capacidadeTotalPeso -= vagao.getCapacidade();
-        this.capacidadeTotalVagões -= vagao.getCapacidade();
-        GaragemVagoes.removeVagao(vagao);
-        return true;
+        if (this.capacidadeTotalPeso < vagao.getCapacidade() && this.capacidadeTotalVagoes > 0){
+            vagoes.add(vagao);
+            vagaoEngatado = true;
+            vagao.setComposicao(this.id);
+            this.capacidadeTotalPeso -= vagao.getCapacidade();
+            this.capacidadeTotalVagoes -= vagao.getCapacidade();
+            GaragemVagoes.removeVagao(vagao);
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     public boolean engataLocomotiva(Locomotiva locomotiva) {
@@ -66,10 +71,10 @@ public class Trem {
             locomotivas.add(locomotiva);
             locomotiva.setComposicao(this.id);
             this.capacidadeTotalPeso += locomotiva.getMaxPeso();
-            this.capacidadeTotalVagões += locomotiva.getMaxVagoes();
+            this.capacidadeTotalVagoes += locomotiva.getMaxVagoes();
             if(locomotivas.size()>1){
                 this.capacidadeTotalPeso = capacidadeTotalPeso * 0.9;
-                this.capacidadeTotalVagões = capacidadeTotalVagões * 0.9;
+                this.capacidadeTotalVagoes = capacidadeTotalVagoes * 0.9;
             }
             GaragemLocomotivas.removeLocomotiva(locomotiva);
             return true;
@@ -84,11 +89,11 @@ public class Trem {
         locomotiva.setComposicao(0);
         if(locomotivas.size()>1){
             this.capacidadeTotalPeso -= locomotiva.getMaxPeso() * 0.9;
-            this.capacidadeTotalVagões -= locomotiva.getMaxVagoes() * 0.9;
+            this.capacidadeTotalVagoes -= locomotiva.getMaxVagoes() * 0.9;
         }
         else{
             this.capacidadeTotalPeso -= locomotiva.getMaxPeso();
-            this.capacidadeTotalVagões -= locomotiva.getMaxVagoes();
+            this.capacidadeTotalVagoes -= locomotiva.getMaxVagoes();
         }
         GaragemLocomotivas.addLocomotiva(locomotiva);
         return true;
@@ -101,7 +106,7 @@ public class Trem {
         }
         vagao.setComposicao(0);
         this.capacidadeTotalPeso += vagao.getCapacidade();
-        this.capacidadeTotalVagões += vagao.getCapacidade();
+        this.capacidadeTotalVagoes += vagao.getCapacidade();
         GaragemVagoes.addVagao(vagao);
         return true;
     }
