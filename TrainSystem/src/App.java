@@ -3,6 +3,8 @@ public class App {
     public static void main(String[] args) throws Exception {
         Patio patio = new Patio();
         Scanner scanner = new Scanner(System.in);
+        GaragemLocomotivas garagemL = new GaragemLocomotivas();
+        GaragemVagoes garagemV = new GaragemVagoes();
         int escolhaMenu = -1;
         int tremId, locoId;
         
@@ -16,6 +18,7 @@ public class App {
             System.out.println("   3. Listar trens    ");
             System.out.println("   4. Desfazer trem   ");
             System.out.println("   5. Sair do programa");
+            System.out.println(garagemL.toString());
             System.out.println("\n");
             System.out.print("Digite o número da opção desejada: ");
             escolhaMenu = scanner.nextInt();
@@ -32,14 +35,15 @@ public class App {
                     System.out.println("Qual o identificador da primeira locomotiva?");
                     locoId = scanner.nextInt();
                     while(GaragemLocomotivas.verificaIdLocomotiva(locoId) == false){
-                        System.out.println("Não existe uma locomotiva com esse identificador. Digite novamente:");
+                        System.out.println("Essa locomotiva não está disponível. Digite novamente:");
                         locoId = scanner.nextInt();
                     } 
                         Locomotiva locoadd = GaragemLocomotivas.getLocomotiva(locoId);
                         patio.criaTrem(tremId,locoadd);
-                        System.out.println("Trem criado com sucesso.");
-                    
-            
+                        System.out.println("Trem criado com sucesso! =)");
+            }
+            if(escolhaMenu == 3){
+                System.out.println(patio.toString());
             }
         }while(escolhaMenu != 5);
     }

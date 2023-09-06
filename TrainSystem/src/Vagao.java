@@ -26,6 +26,6 @@ public class Vagao {
     }
 
     public String toString() {
-        return "Vagão [ID = " + id + "Capacidade = " + capacidade + "]";
+        return "Vagão [V" + id + "Capacidade = " + capacidade + "]";
     }
 }

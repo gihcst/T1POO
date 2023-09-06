@@ -32,6 +32,6 @@ public class Locomotiva {
     }
 
     public String toString() {
-        return "Locomotiva [ID = " + id + ", Capacidade = " + maxPeso + ", Máximo de Vagões = " + maxVagoes + "]";
+        return "Locomotiva [L" + id + ", Capacidade = " + maxPeso + ", Máximo de Vagões = " + maxVagoes + "]";
     }
 }

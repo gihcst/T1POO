@@ -30,8 +30,8 @@ public class Trem {
     public Locomotiva getLocomotiva(int idLocomotiva) {
         int index = 0;
         int posicao = 0;
-        for(Locomotiva X : locomotivas){
-            if(X.getId() == idLocomotiva){
+        for(Locomotiva l : locomotivas){
+            if(l.getId() == idLocomotiva){
              posicao = index;   
             }
             index++;
@@ -42,8 +42,8 @@ public class Trem {
     public Vagao getVagao(int idVagao) {
         int index = 0;
         int posicaoB = 0;
-        for(Vagao X : vagoes){
-            if(X.getId() == idVagao){
+        for(Vagao v : vagoes){
+            if(v.getId() == idVagao){
              posicaoB = index;   
             }
             index++;
@@ -109,5 +109,15 @@ public class Trem {
         this.capacidadeTotalVagoes += vagao.getCapacidade();
         GaragemVagoes.addVagao(vagao);
         return true;
+    }
+    public String toString() {
+        String retorno = "Trem: "+ id + " ";
+        for(Locomotiva l : locomotivas){
+            retorno += "L" + l.getId() + " ";
+        }
+        for(Vagao v : vagoes){
+            retorno += "V" + v.getId() + " ";
+        }
+        return retorno;
     }
 }

@@ -17,4 +17,12 @@ public class Patio {
         trens.add(t);
         return t;
     } 
+
+    public String toString() {
+        String retorno = "Trens estacionados:\n";
+        for(Trem t : trens){
+            retorno += t.toString() + "\n";
+        }
+        return retorno;
+    }
 }
