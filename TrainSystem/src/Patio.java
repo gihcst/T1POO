@@ -1,13 +1,9 @@
 import java.util.*;
 public class Patio {
-    private ArrayList<Trem> trens;
-    GaragemLocomotivas gl;
-    GaragemVagoes gv;
+    private static ArrayList<Trem> trens = new ArrayList<Trem>();
 
-    public Patio() {
-        trens = new ArrayList<Trem>();
-        gl = new GaragemLocomotivas();
-        gv = new GaragemVagoes();
+    public static void addTrem(Trem trem) {
+        trens.add(trem);
     }
 
     //verifica se o id do trem informado existe
@@ -20,9 +16,9 @@ public class Patio {
         return false;
     }
 
-    /*/public Trem criaTrem(int tremId){
-        Trem t = new Trem(tremId);
+    public Trem criaTrem(int tremId, Locomotiva locomotiva){
+        Trem t = new Trem(tremId, locomotiva);
         trens.add(t);
         return t;
-    }/*/ 
+    } 
 }

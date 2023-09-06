@@ -1,11 +1,12 @@
 public class Vagao {
     private int id;
     private double capacidade;
-    private int composicao = 0;
+    private int idTrem;
 
     public Vagao(int id, double capacidade) {
         this.id = id;
         this.capacidade = capacidade;
+        this.idTrem = 0;
     }
 
     public int getId() {
@@ -16,12 +17,12 @@ public class Vagao {
         return capacidade;
     }
 
-    public int getComposicao() {
-        return composicao;
+    public int getIdTrem() {
+        return idTrem;
     }
 
-    public void setComposicao(int composicao) {
-        this.composicao = composicao;
+    public void setIdTrem(int idTrem) {
+        this.idTrem = idTrem;
     }
 
     public String toString() {
