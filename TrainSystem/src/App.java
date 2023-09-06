@@ -5,7 +5,7 @@ public class App {
         Patio patio = new Patio();
         Scanner scanner = new Scanner(System.in);
         int escolhaMenu = -1;
-        int tremId;
+        int tremId, locoId;
         
         System.out.println("Bem vindo ao aplicativo.");
 
@@ -26,11 +26,20 @@ public class App {
             if(escolhaMenu == 1){
                 System.out.println("Qual o identificador do trem?");
                 tremId = scanner.nextInt();
-                    /*/ if(patio.checkId(tremId) == true){
+                    /*/ if(patio.checkExist(tremId) == true){
                         System.out.println("Já existe um trem com esse identificador. Digite outro.");
                     } else {
                         patio.criarTrem(tremId);
-                        System.out.println("Trem criado com sucesso.");                    } /*/
+                        System.out.println("Qual o identificador da primeira locomotiva?");
+                        locoId = scanner.nextInt();
+                            if(GaragemLocomotivas.checkExist(locoId) != true){
+                            System.out.println("Não existe uma locomotiva com esse identificador. Digite outro.");
+                        else {
+                            Trem.addLocomotiva(locoId);
+                            patio.addTrem(tremId);
+                            System.out.println("Trem criado com sucesso.");
+                        }
+                    } /*/
                     }
         }while(escolhaMenu != 5);
     }
