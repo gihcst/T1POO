@@ -129,7 +129,7 @@ public class App {
                         System.out.println(garagemL.toString());
                         System.out.println("6. Voltar");
                         scanner.next();
-                        String op = scanner.nextLine();
+                        scanner.nextLine();
 
                     }
                     if (escolhaMenu == 5) {
@@ -137,7 +137,7 @@ public class App {
                         System.out.println(garagemV.toString());
                         System.out.println("6. Voltar");
                         scanner.next();
-                        String op = scanner.nextLine();
+                        scanner.nextLine();
                     }
                 }while(escolhaMenu != 6);
             }
@@ -145,7 +145,7 @@ public class App {
                 System.out.println(patio.toString());
                 System.out.println("6. Voltar");
                 scanner.next();
-                String op = scanner.nextLine();
+                scanner.nextLine();
             }
             if (escolhaMenu == 4){
                 System.out.println("Qual o identificador do trem que será removido? ");
@@ -158,5 +158,7 @@ public class App {
                 System.out.println("Trem removido com sucesso! =)");
             }
         }while(escolhaMenu != 5);
+        System.out.println("Até a próxima =)");
+        scanner.close();
     }
 }
