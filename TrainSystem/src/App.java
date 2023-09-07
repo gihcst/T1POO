@@ -44,7 +44,7 @@ public class App {
             if(escolhaMenu == 2){
                 do{
                     System.out.println("\n");
-                    System.out.println("               Menu               ");
+                    System.out.println("          Menu de Opções            ");
                     System.out.println("   1. Inserir uma locomotiva      ");
                     System.out.println("   2. Inserir um vagão     ");
                     System.out.println("   3. Remover o último elemento   ");
@@ -127,15 +127,22 @@ public class App {
                     if (escolhaMenu == 4) {
                         System.out.println("Locomotivas disponíveis:");
                         System.out.println(garagemL.toString());
+                        System.out.println("Pressione qualquer tecla para voltar");
+                        String op = scanner.nextLine();
+
                     }
                     if (escolhaMenu == 5) {
                         System.out.println("Vagoes disponíveis:");
                         System.out.println(garagemV.toString());
+                        System.out.println("Pressione qualquer tecla para voltar");
+                        String op = scanner.nextLine();
                     }
                 }while(escolhaMenu != 6);
             }
             if(escolhaMenu == 3){
                 System.out.println(patio.toString());
+                System.out.println("Pressione qualquer tecla para voltar");
+                String op = scanner.nextLine();
             }
             if (escolhaMenu == 4){
                 System.out.println("Qual o identificador do trem que será removido? ");
