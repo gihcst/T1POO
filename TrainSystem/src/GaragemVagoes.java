@@ -26,7 +26,7 @@ public class GaragemVagoes {
     }
 
     //verifica se o id do vagão informado existe
-    public boolean verificaIdVagao(int id){
+    public static boolean verificaIdVagao(int id){
         for(Vagao v: garagemVagoes){
             if (v.getId() == id){
                 return true;
@@ -35,7 +35,7 @@ public class GaragemVagoes {
         return false;
     }
 
-    public Vagao getVagao(int idVagao) {
+    public static Vagao getVagao(int idVagao) {
         int index = 0;
         int posicaoB = 0;
         for(Vagao v : garagemVagoes){

@@ -30,6 +30,18 @@ public class Patio {
         }
     }
 
+    public static Trem getTrem(int idTrem) {
+        int index = 0;
+        int posicao = 0;
+        for(Trem t : trens){
+            if(t.getId() == idTrem){
+             posicao = index;   
+            }
+            index++;
+        }
+        return trens.get(posicao);
+    }
+
     public String toString() {
         String retorno = "     Trens estacionados:\n";
         for(Trem t : trens){
