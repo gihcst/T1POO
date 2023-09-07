@@ -8,7 +8,7 @@ public class App {
         int escolhaMenu = -1;
         int tremId, locoId, vagaoId;
         
-        System.out.println("Bem vindo ao aplicativo.");
+        System.out.println("Bem-vindo ao sistema de trens =)");
 
         do{
             System.out.println("\n");
@@ -77,7 +77,7 @@ public class App {
                             System.out.println("Locomotiva adicionada com sucesso! =)");
                         }
                         else {
-                            System.out.println("Não foi possível adicionar a locomotiva. Já existem um vagão acoplado =(");
+                            System.out.println("Não foi possível adicionar a locomotiva. Já existe um vagão engatado =(");
                         }
                     }
                     if(escolhaMenu == 2){
@@ -127,21 +127,24 @@ public class App {
                     if (escolhaMenu == 4) {
                         System.out.println("Locomotivas disponíveis:");
                         System.out.println(garagemL.toString());
-                        System.out.println("Pressione qualquer tecla para voltar");
+                        System.out.println("6. Voltar");
+                        scanner.next();
                         String op = scanner.nextLine();
 
                     }
                     if (escolhaMenu == 5) {
                         System.out.println("Vagoes disponíveis:");
                         System.out.println(garagemV.toString());
-                        System.out.println("Pressione qualquer tecla para voltar");
+                        System.out.println("6. Voltar");
+                        scanner.next();
                         String op = scanner.nextLine();
                     }
                 }while(escolhaMenu != 6);
             }
             if(escolhaMenu == 3){
                 System.out.println(patio.toString());
-                System.out.println("Pressione qualquer tecla para voltar");
+                System.out.println("6. Voltar");
+                scanner.next();
                 String op = scanner.nextLine();
             }
             if (escolhaMenu == 4){

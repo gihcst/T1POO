@@ -44,8 +44,11 @@ public class Patio {
 
     public String toString() {
         String retorno = "     Trens estacionados:\n";
+        if(trens.size() <1){
+            retorno += "- Nenhum";
+        }
         for(Trem t : trens){
-            retorno += "-" + t.toString() + "\n";
+            retorno += "- " + t.toString() + "\n";
         }
         return retorno;
     }
