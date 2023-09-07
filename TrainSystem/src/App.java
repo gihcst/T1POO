@@ -112,22 +112,24 @@ public class App {
                         }
                         Trem tremadd = Patio.getTrem(tremId);
                         if(tremadd.getQuantVagoes()>0){
-                            tremadd.desengataVagao(tremadd.getVagao(tremadd.getQuantVagoes()-1));
+                            tremadd.desengataVagao(tremadd.getVagaoByPos(tremadd.getQuantVagoes() -1));
                         }
                         else{
                             if(tremadd.getQuantLocomotiva()<2){
                                 System.out.println("Não é possível retirar o último elemento do trem. =(");
                             }
                             else{
-                                tremadd.desengataLocomotiva(tremadd.getLocomotiva(tremadd.getQuantLocomotiva()-1));
+                                tremadd.desengataLocomotiva(tremadd.getLocomotivaByPos(tremadd.getQuantLocomotiva()-1));
                             }
                         }
                         System.out.println("Elemento removido com sucesso! =)");
                     }
                     if (escolhaMenu == 4) {
+                        System.out.println("Locomotivas disponíveis:");
                         System.out.println(garagemL.toString());
                     }
                     if (escolhaMenu == 5) {
+                        System.out.println("Vagoes disponíveis:");
                         System.out.println(garagemV.toString());
                     }
                 }while(escolhaMenu != 6);

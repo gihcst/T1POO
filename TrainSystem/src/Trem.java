@@ -5,7 +5,7 @@ public class Trem {
     private ArrayList<Vagao> vagoes;
     private boolean vagaoEngatado;  
     private double capacidadeTotalPeso = 0;
-    private double capacidadeTotalVagoes = 0;
+    private int capacidadeTotalVagoes = 0;
 
     //criar trem (construtor)
     public Trem(int id, Locomotiva locomotiva){
@@ -39,6 +39,10 @@ public class Trem {
         return locomotivas.get(posicao);
     }
 
+    public Locomotiva getLocomotivaByPos(int posicao) {
+        return locomotivas.get(posicao);
+    }
+
     public Vagao getVagao(int idVagao) {
         int index = 0;
         int posicaoB = 0;
@@ -51,13 +55,17 @@ public class Trem {
         return vagoes.get(posicaoB);
     }
 
+     public Vagao getVagaoByPos(int posicao) {
+        return vagoes.get(posicao);
+    }
+
     public boolean engataVagao(Vagao vagao) {
-        if (this.capacidadeTotalPeso < vagao.getCapacidade() && this.capacidadeTotalVagoes > 0){
+        if (this.capacidadeTotalPeso > vagao.getCapacidade() && this.capacidadeTotalVagoes > 0){
             vagoes.add(vagao);
             vagaoEngatado = true;
             vagao.setIdTrem(this.id);
             this.capacidadeTotalPeso -= vagao.getCapacidade();
-            this.capacidadeTotalVagoes -= vagao.getCapacidade();
+            this.capacidadeTotalVagoes -= 1;
             GaragemVagoes.removeVagao(vagao);
             return true;
         }
@@ -74,7 +82,7 @@ public class Trem {
             this.capacidadeTotalVagoes += locomotiva.getMaxVagoes();
             if(locomotivas.size()>1){
                 this.capacidadeTotalPeso = capacidadeTotalPeso * 0.9;
-                this.capacidadeTotalVagoes = capacidadeTotalVagoes * 0.9;
+                this.capacidadeTotalVagoes = (int) (capacidadeTotalVagoes * 0.9);
             }
             GaragemLocomotivas.removeLocomotiva(locomotiva);
             return true;
@@ -106,7 +114,7 @@ public class Trem {
         }
         vagao.setIdTrem(0);
         this.capacidadeTotalPeso += vagao.getCapacidade();
-        this.capacidadeTotalVagoes += vagao.getCapacidade();
+        this.capacidadeTotalVagoes += 1;
         GaragemVagoes.addVagao(vagao);
         return true;
     }

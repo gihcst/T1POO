@@ -16,6 +16,7 @@ public class GaragemVagoes {
         for(Vagao v : garagemVagoes){
             if(v == vagao){
                 garagemVagoes.remove(index);
+                break;
             }
             index++;
         }

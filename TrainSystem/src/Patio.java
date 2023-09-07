@@ -45,7 +45,7 @@ public class Patio {
     public String toString() {
         String retorno = "     Trens estacionados:\n";
         for(Trem t : trens){
-            retorno += "› " + t.toString() + "\n";
+            retorno += "-" + t.toString() + "\n";
         }
         return retorno;
     }
