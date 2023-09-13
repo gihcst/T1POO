@@ -108,10 +108,10 @@ public class Trem {
     }
 
     public boolean desengataVagao(Vagao vagao) {
-        vagoes.remove(vagao);
         if(vagoes.size() == 1){
             vagaoEngatado = false;
         }
+        vagoes.remove(vagao);
         vagao.setIdTrem(0);
         this.capacidadeTotalPeso += vagao.getCapacidade();
         this.capacidadeTotalVagoes += 1;
@@ -131,7 +131,7 @@ public class Trem {
     }
 
     public String toString() {
-        String retorno = "Trem: "+ id + " ";
+        String retorno = "Trem "+ id + ": ";
         for(Locomotiva l : locomotivas){
             retorno += "L" + l.getId() + " ";
         }
